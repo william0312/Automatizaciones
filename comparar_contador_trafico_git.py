@@ -1,4 +1,4 @@
-
+# -*- coding: encoding_latin1 -*-
 import pandas as pd
 import numpy as np
 
@@ -15,7 +15,7 @@ def ejecutar_cruce_seguro(CONTADORES, VELOCIDAD,SITIOS,PQRSD):
 
     VELOCIDAD_TRATADA = VELOCIDAD_TRATADA.groupby('Identificador beneficiario')['Fecha de ejecucion'].max().reset_index()
 
-    # Crea una nueva columna con la cantidad de dÌas de diferencia
+    # Crea una nueva columna con la cantidad de d√≠as de diferencia
     VELOCIDAD_TRATADA['Dias_diferencia'] = (
      (pd.Timestamp('today') - pd.Timedelta(days=1)).normalize() - VELOCIDAD_TRATADA['Fecha de ejecucion'].dt.normalize()
     ).dt.days
@@ -34,8 +34,8 @@ def ejecutar_cruce_seguro(CONTADORES, VELOCIDAD,SITIOS,PQRSD):
 
     PQRSD_TRATADA = PQRSD_TRATADA[PQRSD_TRATADA['Estado']!='Cerrar']
     PQRSD_TRATADA_VELOCIDAD = PQRSD_TRATADA[PQRSD_TRATADA['SUBCATEGORIA'].isin([
-        'CD-MEDICI”N DIRECTA DE VELOCIDAD EFECTIVA DE TRANSMISI”N DE DATOS',
-        'CD-FALLA EN EJECUCI”N DE PRUEBA DE VELOCIDAD 5 DÕAS CALENDARIO'
+        'CD-MEDICI√ìN DIRECTA DE VELOCIDAD EFECTIVA DE TRANSMISI√ìN DE DATOS',
+        'CD-FALLA EN EJECUCI√ìN DE PRUEBA DE VELOCIDAD 5 D√çAS CALENDARIO'
      ])]
 
 
